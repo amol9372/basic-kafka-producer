@@ -1,0 +1,38 @@
+{
+  "namespace": "org.ccdak.practice.basicKafka.messaging",
+  "type": "record",
+  "name": "Payload",
+  "fields": [
+    {
+      "name": "message",
+      "type": "string"
+    },
+    {
+      "name": "test",
+      "type": "string"
+    },
+    {
+      "name": "test2",
+      "type": "string"
+    },
+    {
+      "name": "test3",
+      "type": "string",
+      "default": "false"
+    },
+    {
+      "name": "test4",
+      "type": "string",
+      "default": "null"
+    },
+    {
+      "name": "test5",
+      "type": "string",
+      "default": "false"
+    },
+    {
+      "name": "test6",
+      "type": "string"
+    }
+  ]
+}

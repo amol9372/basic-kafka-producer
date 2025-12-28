@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+// 1. The Java Package where the class will be generated
+option java_package = "org.ccdak.practice.basicKafka.messaging";
+// 2. Wrap all classes in one outer class? (Standard is true)
+option java_outer_classname = "UserLoginProto";
+
+// 3. The actual message definition
+message UserLogin {
+  // Tag 1 is the ID. Renaming 'username' to 'user_id' later is SAFE.
+  string username = 1;
+
+  // Tag 2 is the Timestamp.
+  int64 timestamp = 2;
+
+  // Tag 3 is an Enum (Protobuf handles Enums natively)
+  enum DeviceType {
+    UNKNOWN = 0; // Proto3 requires a 0 value default
+    MOBILE = 1;
+    WEB = 2;
+  }
+  DeviceType device = 3;
+}

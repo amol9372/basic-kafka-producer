@@ -1,0 +1,39 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092,localhost:9094,localhost:9096
+
+    # Producer-specific settings
+    producer:
+      #      transaction-id-prefix: tx-
+      # No schema registry yet, so we treat data as simple Strings
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      # value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+
+      # Optional: Good defaults for a senior dev's production setup
+      retries: 3
+      acks: all
+
+
+    properties:
+      specific.avro.reader: true
+      auto.register.schemas: false
+      schema.registry.url: "http://localhost:8081"
+      # --- Security Settings ---
+      security.protocol: SASL_PLAINTEXT
+      sasl.mechanism: PLAIN
+
+      # The Login Module.
+      # CAREFUL: The semicolon (;) at the end of the line is required by the Kafka library.
+      sasl.jaas.config: |
+        org.apache.kafka.common.security.plain.PlainLoginModule required
+        username="admin"
+        password="admin-secret";
+
+      # --- TrustStore (Server Verification) ---
+      # If your broker uses a public cert (GoDaddy/DigiCert), you might not need this.
+      # If it uses an internal Company CA, point this to your JKS/P12 file.
+#      ssl.truststore.location: classpath:client-truststore.jks
+#      ssl.truststore.password: changeit
+server:
+  port: 8090
