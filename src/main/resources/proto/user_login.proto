@@ -20,4 +20,7 @@ message UserLogin {
     WEB = 2;
   }
   DeviceType device = 3;
+
+  // List type
+  // repeated string coupon_codes = 4;
 }

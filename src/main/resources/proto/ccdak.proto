@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option java_package = "org.ccdak.practice.basicKafka.messaging";
+option java_outer_classname = "ExamProto";
+
+message Exam {
+
+  // One of the 2 has to be present in payload
+  oneof user_action {
+    string purchase = 1;
+    string return = 2;
+  }
+}

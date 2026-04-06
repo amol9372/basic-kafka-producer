@@ -7,7 +7,7 @@ spring:
       #      transaction-id-prefix: tx-
       # No schema registry yet, so we treat data as simple Strings
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      # value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
 
       # Optional: Good defaults for a senior dev's production setup

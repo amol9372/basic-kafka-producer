@@ -53,7 +53,7 @@ public class Producer {
     public void sendMessage(Payload payload) {
         String key = String.valueOf((int) (Math.random() * 10));
 
-        kafkaTemplate.send("orders", key, payload);
+        kafkaTemplate.send("orders-1", key, payload);
     }
 }
 

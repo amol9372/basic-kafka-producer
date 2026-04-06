@@ -1,0 +1,51 @@
+{
+  "namespace": "org.ccdak.practice.basicKafka.messaging",
+  "type": "record",
+  "name": "Exam",
+  "fields": [
+    {
+      "name": "message",
+      "type": "string"
+    },
+    {
+      "name": "type",
+      "type": "string"
+    },
+    {
+      "name": "options",
+      "type": {
+        "type": "map",
+        "values": "double"
+      }
+    },
+    {
+      "name": "category",
+      "type": {
+        "type": "enum",
+        "name": "action",
+        "symbols": [
+          "LOGIN",
+          "LOGOUT"
+        ]
+      },
+      "default": "LOGIN"
+    },
+    {
+      "name": "tags",
+      "type": {
+        "type": "array",
+        "items": "string"
+      },
+      "default": [],
+      "doc": "Complex Type: Array of strings"
+    },
+    {
+      "name": "metadata",
+      "type": {
+        "type": "map",
+        "values": "string"
+      },
+      "doc": "Complex Type: Map (Keys in Avro maps are always strings)"
+    }
+  ]
+}

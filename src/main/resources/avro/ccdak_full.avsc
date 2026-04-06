@@ -1,0 +1,16 @@
+{
+  "namespace": "org.ccdak.practice.basicKafka.messaging",
+  "type": "record",
+  "name": "ExamFullAvro",
+  "fields": [
+    {
+      "name": "full_message",
+      "type": "string"
+    },
+    {
+      "name": "exam",
+      "type": "org.ccdak.practice.basicKafka.messaging.ExamFullAvro",
+      "doc": "Mandatory reference to the external Exam schema"
+    }
+  ]
+}
